@@ -17,15 +17,22 @@
 #overlay > #buttons {
     display: flex;
     flex-direction: row;
-    background: rgb(220, 220, 220);
     height: 40px;
 }
 
-#overlay > #buttons > span {
+#overlay > #buttons > span, #overlay > #buttons > a {
     padding: 10px;
     text-align: center;
+    color: black;
+    text-decoration: none;
+    background: rgb(220, 220, 220);
 }
-#overlay > #buttons > span:hover {
+
+#overlay > #buttons > a {
+    margin-right: 5px;
+}
+
+#overlay > #buttons > span:hover, #overlay > #buttons > a:hover {
     background: rgb(200, 200, 200);
     cursor: pointer;
 }
