@@ -4,6 +4,7 @@ let imgFilter = 0;
 function setup() {
   capture = createCapture({
     video: {
+        frameRate: 30,
         facingMode: "environment"
     }
   });
