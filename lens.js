@@ -10,7 +10,7 @@ function setup() {
   });
   capture.hide();
 
-
+  document.getElementById('filter_blue').innerHTML = `${capture.width}x${capture.height}`;
   let canvas = createCanvas(capture.width, capture.height);
   canvas.style('height', 'auto')
   canvas.style('width', '100%')
