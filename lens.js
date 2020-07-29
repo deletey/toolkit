@@ -2,10 +2,13 @@ let capture;
 let imgFilter = 0;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
   capture = createCapture(VIDEO);
-  capture.size(windowWidth, windowHeight);
   capture.hide();
+
+  let canvas = createCanvas(capture.width, capture.height);
+  canvas.style('height', '100vh');
+  canvas.style('width', '100vw');
+  canvas.style('object-fit', 'cover');
 }
 
 function draw() {
@@ -22,7 +25,7 @@ function getFiltered() {
     let image = createImage(width, height);
     image.copy(capture, 0, 0, width, height, 0, 0, width, height);
 
-    if(filter != 0) {
+    if(imgFilter != 0) {
       image.loadPixels();
       for(let i = 0; i < image.pixels.length; i++) {
         if(imgFilter == 1 && i % 4 == 0) {
@@ -37,9 +40,8 @@ function getFiltered() {
       }
 
       image.updatePixels();
+      return image;
     } else {
       return capture;
     }
-
-    return image;
 }
