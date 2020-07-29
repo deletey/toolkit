@@ -3,7 +3,6 @@ let imgFilter = 0;
 
 function setup() {
   capture = createCapture(VIDEO);
-  capture.size(1080, 1920);
   capture.hide();
 
 
