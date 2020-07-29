@@ -2,7 +2,11 @@ let capture;
 let imgFilter = 0;
 
 function setup() {
-  capture = createCapture(VIDEO);
+  capture = createCapture({
+    video: {
+        facingMode: "environment"
+    }
+  });
   capture.hide();
 
 
