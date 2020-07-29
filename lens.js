@@ -5,10 +5,10 @@ function setup() {
   capture = createCapture(VIDEO);
   capture.hide();
 
+
   let canvas = createCanvas(capture.width, capture.height);
-  canvas.style('height', '100vh');
-  canvas.style('width', '100vw');
-  canvas.style('object-fit', 'cover');
+  canvas.style('height', '100%')
+  canvas.style('width', 'auto')
 }
 
 function draw() {
@@ -22,8 +22,8 @@ function draw() {
 }
 
 function getFiltered() {
-    let image = createImage(width, height);
-    image.copy(capture, 0, 0, width, height, 0, 0, width, height);
+    let image = createImage(capture.width, capture.height);
+    image.copy(capture, 0, 0, capture.width, capture.height, 0, 0, capture.width, capture.height);
 
     if(imgFilter != 0) {
       image.loadPixels();
