@@ -3,12 +3,13 @@ let imgFilter = 0;
 
 function setup() {
   capture = createCapture(VIDEO);
+  capture.size(1080, 1920);
   capture.hide();
 
 
   let canvas = createCanvas(capture.width, capture.height);
-  canvas.style('height', '100%')
-  canvas.style('width', 'auto')
+  canvas.style('height', 'auto')
+  canvas.style('width', '100%')
 }
 
 function draw() {
