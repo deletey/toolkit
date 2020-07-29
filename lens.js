@@ -1,23 +1,38 @@
 let capture;
 let imgFilter = 0;
+let captureInit = false;
 
-function setup() {
+async function setup() {
   capture = createCapture({
     video: {
         frameRate: 30,
         facingMode: "environment"
     }
+  }, () => {
+    let canvas = createCanvas(capture.width, capture.height);
+    canvas.style('height', 'auto')
+    canvas.style('width', '100%')
+
+    captureInit = true;
   });
   capture.hide();
 
-  document.getElementById('filter_blue').innerHTML = `${capture.width}x${capture.height}`;
-  let canvas = createCanvas(capture.width, capture.height);
-  canvas.style('height', 'auto')
-  canvas.style('width', '100%')
+  console.log(` setup ${capture.width}x${capture.height}`)
+
+  
+}
+
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms)); 
 }
 
 function draw() {
+  if(!captureInit) {
+    return
+  }
+
   background(255);
+  console.log(` draw ${capture.width}x${capture.height}`)
 
   capture.loadPixels();
 
